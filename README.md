@@ -1,4 +1,4 @@
-# test-global66
+# Testing of Front-end Developer Global66
 
 ## Build Setup
 
@@ -18,3 +18,9 @@ $ npm run generate
 ```
 
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+
+## Technology
+* [NuxtJS](https://nuxtjs.org).
+* [BootstrapVue](https://bootstrap-vue.org/).
+* [Axios](https://github.com/axios/axios).
+* [Cypress](https://www.cypress.io/).
