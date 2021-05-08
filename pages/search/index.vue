@@ -1,21 +1,25 @@
 <template>
   <div>
-    <b-container class="page_search">
+    <b-container id="page_search" class="page_search">
       <b-row>
         <b-col cols="12 d-flex justify-content-center">
           <b-input-group class="input_search">
             <template #prepend>
-              <b-input-group-text
-                ><img src="img/icon-search.svg" alt="search"
-              /></b-input-group-text>
+              <b-input-group-text>
+                <img src="img/icon-search.svg" alt="search" />
+              </b-input-group-text>
             </template>
-            <b-form-input id="input-search" placeholder="Search"></b-form-input>
+            <b-form-input
+              id="input-search"
+              v-model="search"
+              placeholder="Search"
+            ></b-form-input>
           </b-input-group>
         </b-col>
       </b-row>
-      <Results />
+      <Results :pokemons="filterPokemons" />
     </b-container>
-    <Buttons />
+    <Buttons v-if="filterPokemons.length" />
   </div>
 </template>
 <script>
@@ -26,12 +30,35 @@ export default {
     Results,
     Buttons,
   },
+  async asyncData({ app, store }) {
+    const { data } = await app.$axios.get('pokemon')
+    store.commit('pokemons/set_pokemons', data.results)
+    return {
+      pokemons: data,
+    }
+  },
+  computed: {
+    search: {
+      get() {
+        return this.$store.state.pokemons.filter.query
+      },
+      set(val) {
+        this.$store.commit('pokemons/SET_QUERY', val)
+      },
+    },
+    filterPokemons() {
+      return this.$store.getters['pokemons/filterPokemons']
+    },
+  },
   mounted() {
     this.$nextTick(() => {
       this.$nuxt.$loading.start()
+      document.getElementById('page_search').classList.add('d-none')
+      document.getElementById('footer').classList.add('d-none')
       setTimeout(() => {
         this.$nuxt.$loading.finish()
-        // document.getElementById('home').classList.remove('d-none')
+        document.getElementById('page_search').classList.remove('d-none')
+        document.getElementById('footer').classList.remove('d-none')
       }, 500)
     })
   },

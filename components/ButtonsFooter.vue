@@ -1,5 +1,5 @@
 <template>
-  <div class="main_content">
+  <div id="footer" class="footer">
     <div class="buttons_footer my-auto row d-flex justify-content-center">
       <div class="my-auto">
         <b-row>
@@ -17,12 +17,12 @@
   </div>
 </template>
 <style lang="scss">
-.main_content {
+.footer {
   .buttons_footer {
     position: fixed;
     bottom: 0%;
     width: 101%;
-    z-index: -1;
+    z-index: 9;
     background: #ffffff;
     box-shadow: 0px -5px 4px rgba(0, 0, 0, 0.05);
     height: 80px;

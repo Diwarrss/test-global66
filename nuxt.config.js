@@ -40,6 +40,7 @@ export default {
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
     '@nuxtjs/style-resources',
+    'nuxt-clipboard2',
   ],
 
   styleResources: {
@@ -57,5 +58,18 @@ export default {
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {},
+  build: {
+    /*
+     ** You can extend webpack config here
+     */
+    extends(config) {
+      // for using images in folder 'assets' also in data attribute 'data-src'
+      // useful for lazy loading
+      // https://github.com/nuxt/nuxt.js/issues/2650
+      const vueLoader = config.module.rules.find(
+        (rule) => rule.loader === 'vue-loader'
+      )
+      vueLoader.options.transformToRequire.img = ['src', 'data-src']
+    },
+  },
 }
