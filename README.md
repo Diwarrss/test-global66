@@ -6,8 +6,9 @@
 # install dependencies
 $ npm install
 
-# config .env
-
+# create config .env
+BASE_URL=http://localhost:3000/
+API_URL=https://pokeapi.co/api/v2/
 
 # serve with hot reload at localhost:3000
 $ npm run dev
@@ -26,4 +27,3 @@ For detailed explanation on how things work, check out [Nuxt.js docs](https://nu
 * [NuxtJS](https://nuxtjs.org).
 * [BootstrapVue](https://bootstrap-vue.org/).
 * [Axios](https://github.com/axios/axios).
-* [Cypress](https://www.cypress.io/).
