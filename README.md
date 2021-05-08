@@ -1,10 +1,13 @@
-# Testing of Front-end Developer Global66
+# Testing of Front end Developer Global66
 
 ## Build Setup
 
 ```bash
 # install dependencies
 $ npm install
+
+# config .env
+
 
 # serve with hot reload at localhost:3000
 $ npm run dev

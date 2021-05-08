@@ -19,7 +19,7 @@ export default {
       setTimeout(() => {
         this.$nuxt.$loading.finish()
         document.getElementById('home').classList.remove('d-none')
-      }, 1000)
+      }, 500)
     })
   },
 }
@@ -55,10 +55,7 @@ export default {
   .btn-danger {
     margin-top: 50px;
     width: 131px;
-    height: 44px;
-    background: #f22539;
-    border-radius: 60px;
-    font-size: 18px;
+    @include btn-pokedex();
   }
 }
 </style>

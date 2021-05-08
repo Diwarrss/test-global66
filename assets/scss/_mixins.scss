@@ -10,3 +10,9 @@
 @mixin font-italic(){
   font-family: 'Lato-Italic', sans-serif;
 }
+@mixin btn-pokedex {
+  height: 44px;
+  background: #f22539;
+  border-radius: 60px;
+  font-size: 18px;
+}
