@@ -1,0 +1,12 @@
+@mixin font-light(){
+  font-family: 'Lato-Light', sans-serif;
+}
+@mixin font-regular(){
+  font-family: 'Lato-Regular', sans-serif;
+}
+@mixin font-bold(){
+  font-family: 'Lato-Bold', sans-serif;
+}
+@mixin font-italic(){
+  font-family: 'Lato-Italic', sans-serif;
+}

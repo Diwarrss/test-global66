@@ -1,0 +1,6 @@
+@import "fonts";
+@import "mixins";
+html, body{
+  @include font-regular();
+  background: #f9f9f9;
+}

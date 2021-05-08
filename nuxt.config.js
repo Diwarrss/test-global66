@@ -2,11 +2,13 @@ export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
 
+  loading: '~/components/Loading.vue',
+
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'test-global66',
     htmlAttrs: {
-      lang: 'en',
+      lang: 'es',
     },
     meta: [
       { charset: 'utf-8' },
@@ -17,7 +19,7 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [],
+  css: ['~assets/scss/main.scss'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [],
@@ -37,10 +39,22 @@ export default {
     'bootstrap-vue/nuxt',
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    '@nuxtjs/style-resources',
   ],
 
+  styleResources: {
+    scss: ['~assets/scss/_mixins.scss'],
+  },
+
+  env: {
+    baseUrl: process.env.BASE_URL || 'http://localhost:3000',
+    apiBaseUrl: process.env.API_BASE_URL || 'http://localhost:5000',
+  },
+
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  axios: {},
+  axios: {
+    baseURL: process.env.apiBaseUrl,
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
